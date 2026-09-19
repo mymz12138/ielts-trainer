@@ -1,0 +1,19 @@
+{
+ "updated": "2026-09-19",
+ "words": {
+  "promotion": {
+   "word": "promotion",
+   "phon": "/prəˈməʊʃn/",
+   "audio": "",
+   "meanings": [
+    {
+     "pos": "noun",
+     "defs": [
+      { "en": "an advancement in rank or position in a job or organization.", "ex": "She was given a promotion after only two years at the company." },
+      { "en": "activity that advertises a product, event or service in order to increase sales.", "ex": "The company launched a nationwide sales promotion." }
+     ]
+    }
+   ]
+  }
+ }
+}

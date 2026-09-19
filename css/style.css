@@ -560,6 +560,28 @@ html[data-theme="dark"] .hero { background: var(--brand-soft); color: var(--ink)
 .vbtn:hover { filter: brightness(.97); }
 .vocab-count { font-size: 12.5px; color: var(--ink-3); margin-bottom: 8px; }
 
+/* ---- 联网查词面板 ---- */
+.dict-btn { margin-top: 14px; }
+.dict-panel {
+  margin-top: 12px; text-align: left; font-size: 13.5px;
+  background: var(--bg-soft); border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm); padding: 14px 18px;
+}
+.dict-loading { color: var(--ink-3); text-align: center; padding: 6px 0; }
+.dict-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.dict-word { font-size: 17px; font-weight: 700; color: var(--brand); }
+.dict-phon { color: var(--ink-3); }
+.dict-say { border: none; background: none; color: var(--brand-2); cursor: pointer; padding: 2px; display: inline-flex; }
+.dict-say svg { width: 16px; height: 16px; }
+.dict-src { margin-left: auto; font-size: 11px; color: var(--ink-3); }
+.dict-meaning { padding: 8px 0; border-top: 1px dashed var(--line-soft); }
+.dict-meaning:first-of-type { border-top: none; }
+.dict-pos { font-size: 12px; color: var(--amber); font-style: italic; margin-bottom: 3px; }
+.dict-def p { margin: 3px 0; color: var(--ink-2); line-height: 1.7; }
+.dict-def .dict-ex { color: var(--ink-3); font-style: italic; }
+.dict-syns { display: flex; flex-wrap: wrap; gap: 6px; }
+.dict-syn { background: var(--card); border: 1px solid var(--line-soft); border-radius: 999px; padding: 2px 10px; font-size: 12px; color: var(--ink-2); }
+
 .wordbook-list { display: flex; flex-direction: column; gap: 8px; }
 .wordbook-row {
   display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;

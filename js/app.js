@@ -786,6 +786,55 @@ function ensureVocabToday() {
     save();
   }
 }
+
+/* ---------- 联网查词（dictionaryapi.dev，带本地缓存） ---------- */
+function dictPanelHTML(id) {
+  return `<div class="dict-panel" id="${id}" hidden></div>`;
+}
+function attachDict(btnSel, panelSel, getWord) {
+  const btn = $(btnSel), panel = $(panelSel);
+  if (!btn || !panel) return;
+  btn.addEventListener("click", async () => {
+    const w = getWord();
+    if (!panel.hidden && panel.dataset.word === w) { panel.hidden = true; return; }
+    panel.hidden = false;
+    panel.dataset.word = w || "";
+    panel.innerHTML = `<div class="dict-loading">正在查询 ${esc(w)} …</div>`;
+    try {
+      const r = await DictAPI.lookup(w);
+      if (r.ok) {
+        const d = r.data;
+        panel.innerHTML = `
+          <div class="dict-head">
+            <span class="dict-word">${esc(d.word)}</span>
+            ${d.phon ? `<span class="dict-phon">${esc(d.phon)}</span>` : ""}
+            ${d.audio ? `<button class="dict-say" data-audio="${esc(d.audio)}" title="播放真人发音">${I.volume}</button>` : ""}
+            <span class="dict-src">dictionaryapi.dev</span>
+          </div>
+          ${d.meanings.map(m => `
+            <div class="dict-meaning">
+              <div class="dict-pos">${esc(m.pos)}</div>
+              ${m.defs.map(df => `<div class="dict-def"><p>${esc(df.en)}</p>${df.ex ? `<p class="dict-ex">${esc(df.ex)}</p>` : ""}</div>`).join("")}
+            </div>`).join("")}
+          ${r.syns && r.syns.length ? `
+            <div class="dict-meaning">
+              <div class="dict-pos">近义词 · via Datamuse</div>
+              <div class="dict-syns">${r.syns.map(s => `<span class="dict-syn">${esc(s)}</span>`).join("")}</div>
+            </div>` : ""}`;
+      } else {
+        panel.innerHTML = `<div class="dict-loading">词典库暂未收录「${esc(w)}」</div>`;
+      }
+    } catch (e) {
+      panel.innerHTML = `<div class="dict-loading">网络异常，请稍后重试</div>`;
+    }
+  });
+  panel.addEventListener("click", e => {
+    const say = e.target.closest(".dict-say");
+    if (say && say.dataset.audio) {
+      new Audio(say.dataset.audio).play().catch(() => toast("音频播放失败"));
+    }
+  });
+}
 function renderVocab() {
   ensureVocabToday();
   const vt = S.vocabToday;
@@ -839,6 +888,8 @@ function renderVocab() {
       <div class="vocab-pos">${esc(w.p)} <button class="btn sm plain" id="sayWord" style="margin-left:8px">${I.volume} 发音</button></div>
       <div class="vocab-cn">${esc(w.cn)}</div>
       <div class="vocab-sent"><b>${esc(w.s)}</b><br>${esc(w.sc)}</div>
+      <button class="btn sm plain dict-btn" id="dictBtn">${I.book} 联网查词</button>
+      ${dictPanelHTML("dictPanel")}
       <div class="vocab-actions">
         <button class="vbtn no" id="vNo">不认识 😵</button>
         <button class="vbtn yes" id="vYes">认识 ✓</button>
@@ -858,6 +909,8 @@ function renderVocab() {
       <div class="vocab-pos" id="exPos"></div>
       <div class="vocab-cn" id="exCn"></div>
       <div class="vocab-sent" id="exSent"></div>
+      <button class="btn sm plain dict-btn" id="exDictBtn">${I.book} 联网查词</button>
+      ${dictPanelHTML("exDictPanel")}
       <div class="vocab-actions">
         <button class="vbtn no" id="exNo">不认识 😵</button>
         <button class="vbtn yes" id="exYes">认识 ✓</button>
@@ -887,6 +940,7 @@ function renderVocab() {
 
   const say = w => ttsSpeak(w, 0.85);
   const sw = $("#sayWord"); if (sw) sw.addEventListener("click", () => say(ALL_WORDS[vt.picks[doneN]].w));
+  attachDict("#dictBtn", "#dictPanel", () => ALL_WORDS[vt.picks[doneN]].w);
 
   function advance(known) {
     const w = ALL_WORDS[vt.picks[doneN]];
@@ -912,7 +966,7 @@ function renderVocab() {
   // 加练
   const eb = $("#extraBox");
   if (eb) {
-    let exPool = [], exI = -1, exKnown = 0, exUnknown = 0;
+    let exPool = [], exI = -1, exKnown = 0, exUnknown = 0, exCur = null;
     function nextEx() {
       if (exI < 0 || exI >= exPool.length - 1) {
         exPool = dailyPicks(vt.date + "-" + Math.floor(Math.random() * 9999));
@@ -920,12 +974,14 @@ function renderVocab() {
       }
       exI++;
       const w = ALL_WORDS[exPool[exI]];
+      exCur = w;
       $("#exWord").textContent = w.w;
       $("#exPos").textContent = w.p;
       $("#exCn").textContent = w.cn;
       $("#exSent").innerHTML = "<b>" + esc(w.s) + "</b><br>" + esc(w.sc);
     }
     $("#extraRound").addEventListener("click", () => { eb.style.display = "block"; exI = -1; nextEx(); eb.scrollIntoView({ behavior: "smooth" }); });
+    attachDict("#exDictBtn", "#exDictPanel", () => exCur && exCur.w);
     $("#exNo").addEventListener("click", () => { exUnknown++; if (!S.wordbook.includes(ALL_WORDS[exPool[exI]].w)) S.wordbook.push(ALL_WORDS[exPool[exI]].w); save(); nextEx(); });
     $("#exYes").addEventListener("click", () => { exKnown++; nextEx(); });
   }
