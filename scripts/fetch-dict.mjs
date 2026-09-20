@@ -97,8 +97,8 @@ async function main() {
     const bnc = parseInt(cols[8]) || 0;
     const frq = parseInt(cols[9]) || 0;
     const rec = { word, cols, collins, oxford, bnc, frq };
-    if (tag.includes("雅思")) ieltsPool.push(rec);
-    else if (collins >= 3 || oxford >= 2 || (bnc > 0 && bnc < 15000)) freqPool.push(rec);
+    if (tag.includes("ielts")) ieltsPool.push(rec);
+    else if ((collins >= 3 || oxford >= 2) && (bnc === 0 || bnc > 1500)) freqPool.push(rec);
   }
   console.log(`ielts-tagged candidates: ${ieltsPool.length}, freq candidates: ${freqPool.length}`);
 
