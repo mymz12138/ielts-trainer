@@ -56365,6 +56365,61 @@
    "en": [
     "n. man's close-fitting garment of the 16th and 17th centuries covering the legs and reaching up to the waist; worn with a doublet\\nn. a flexible pipe for conveying a liquid or gas\\nv. water with a hose"
    ]
+  },
+  "influx": {
+   "word": "influx",
+   "phon": "'inflʌks",
+   "pos": "",
+   "cn": [
+    "n. 流入, 河口, 汇集\\n[医] 注入, 流入"
+   ],
+   "en": [
+    "n the process of flowing in"
+   ]
+  },
+  "wail": {
+   "word": "wail",
+   "phon": "weil",
+   "pos": "",
+   "cn": [
+    "n. 恸哭, 哀号, 嚎啕, 呼啸(声)\\nvi. 恸哭, 呼啸, 悲叹, 哀号, 嚎啕"
+   ],
+   "en": [
+    "v. cry weakly or softly"
+   ]
+  },
+  "extinct": {
+   "word": "extinct",
+   "phon": "ik'stiŋkt",
+   "pos": "",
+   "cn": [
+    "a. 熄灭的, 灭绝的, 耗尽的\\n[法] 消灭了的, 过时的, 无效的"
+   ],
+   "en": [
+    "a. no longer in existence; lost or especially having died out leaving no living representatives\\na. (of e.g. volcanos) permanently inactive\\ns. being out or having grown cold"
+   ]
+  },
+  "fleeting": {
+   "word": "fleeting",
+   "phon": "",
+   "pos": "",
+   "cn": [
+    "a. 疾驰的, 短暂的, 飞逝的"
+   ],
+   "en": [
+    "s. lasting for a markedly brief time"
+   ]
+  },
+  "crumb": {
+   "word": "crumb",
+   "phon": "krʌm",
+   "pos": "",
+   "cn": [
+    "n. 碎屑, 面包屑, 少许\\nvt. 捏碎, 弄碎"
+   ],
+   "en": [
+    "n. a very small quantity of something\\nn. small piece of e.g. bread or cake\\nv. coat with bread crumbs\\nv. break into crumbs"
+   ]
   }
  }
 }
