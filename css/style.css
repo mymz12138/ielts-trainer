@@ -639,6 +639,12 @@ html[data-theme="dark"] .hero { background: var(--brand-soft); color: var(--ink)
 
 .section-gap { height: 18px; }
 
+.site-footer {
+  text-align: center; padding: 14px 16px; padding-bottom: calc(14px + var(--bnav-h) + env(safe-area-inset-bottom));
+  color: var(--ink-3); font-size: 12px; line-height: 1.6;
+}
+@media (min-width: 900px) { .site-footer { padding-bottom: 14px; } }
+
 /* ===== 底部导航可横向滚动（9 个入口） ===== */
 .bnav-inner { overflow-x: auto; scrollbar-width: none; }
 .bnav-inner::-webkit-scrollbar { display: none; }
