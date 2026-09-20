@@ -13,6 +13,863 @@
     "a move to a higher position or rank in a job",
     "activities intended to increase the sales of a product"
    ]
+  },
+  "curriculum": {
+   "word": "curriculum",
+   "phon": "kә'rikjulәm",
+   "pos": "",
+   "cn": [
+    "n. 课程\\n[医] 课程, 学程"
+   ],
+   "en": [
+    "n an integrated course of academic studies"
+   ]
+  },
+  "academic": {
+   "word": "academic",
+   "phon": ".ækә'demik",
+   "pos": "",
+   "cn": [
+    "a. 学院的, 学术的, 不切实际的\\nn. 大学生, 大学教师, 学者, 学会会员"
+   ],
+   "en": [
+    "a. associated with academia or an academy\\ns. hypothetical or theoretical and not expected to produce an immediate or practical result\\ns. marked by a narrow focus on or display of learning especially its trivial aspects"
+   ]
+  },
+  "discipline": {
+   "word": "discipline",
+   "phon": "'disiplin",
+   "pos": "",
+   "cn": [
+    "n. 训练, 纪律\\nvt. 训练, 惩罚"
+   ],
+   "en": [
+    "n. a branch of knowledge\\nn. a system of rules of conduct or method of practice; \\nn. the trait of being well behaved\\nn. training to improve strength or self-control"
+   ]
+  },
+  "motivate": {
+   "word": "motivate",
+   "phon": "'mәutiveit",
+   "pos": "",
+   "cn": [
+    "vt. 给与动机, 刺激, 提高...的学习欲望, 促动\\n[经] 促动, 激发, 激励"
+   ],
+   "en": [
+    "v. give an incentive for action"
+   ]
+  },
+  "tuition": {
+   "word": "tuition",
+   "phon": "tju:'iʃәn",
+   "pos": "",
+   "cn": [
+    "n. 学费, 讲授"
+   ],
+   "en": [
+    "n. a fee paid for instruction (especially for higher education)"
+   ]
+  },
+  "literacy": {
+   "word": "literacy",
+   "phon": "'litәrәsi",
+   "pos": "",
+   "cn": [
+    "n. 读写能力, 识字, 精通文学"
+   ],
+   "en": [
+    "n. the ability to read and write"
+   ]
+  },
+  "assess": {
+   "word": "assess",
+   "phon": "ә'ses",
+   "pos": "",
+   "cn": [
+    "vt. 估定, 对...征税, 评定\\n[经] 估计, 估价, 确定(税款罚款等)的金额"
+   ],
+   "en": [
+    "v. charge (a person or a property) with a payment, such as a tax or a fine\\nv. estimate the value of (property) for taxation"
+   ]
+  },
+  "vocational": {
+   "word": "vocational",
+   "phon": "vәu'keiʃәnl",
+   "pos": "",
+   "cn": [
+    "a. 职业的\\n[法] 职业上的, 天职的"
+   ],
+   "en": [
+    "a. of or relating to a vocation or occupation; especially providing or undergoing training in special skills"
+   ]
+  },
+  "intellectual": {
+   "word": "intellectual",
+   "phon": ".intә'lektʃuәl",
+   "pos": "",
+   "cn": [
+    "n. 有知识者, 知识分子, 凭理智做事者\\na. 智力的, 用脑力的, 聪明的"
+   ],
+   "en": [
+    "n. a person who uses the mind creatively\\ns. of or associated with or requiring the use of the mind\\na. appealing to or using the intellect"
+   ]
+  },
+  "mentor": {
+   "word": "mentor",
+   "phon": "'mentɔ:",
+   "pos": "",
+   "cn": [
+    "n. 指导者, 良师益友"
+   ],
+   "en": [
+    "n. a wise and trusted guide and advisor\\nv. serve as a teacher or trusted counselor"
+   ]
+  },
+  "sustainable": {
+   "word": "sustainable",
+   "phon": "sә'steinәbl",
+   "pos": "",
+   "cn": [
+    "a. 足可支撑的, 养得起的, 可以忍受的"
+   ],
+   "en": [
+    "a. capable of being sustained"
+   ]
+  },
+  "emission": {
+   "word": "emission",
+   "phon": "i'miʃәn",
+   "pos": "",
+   "cn": [
+    "n. 发射, 射出, 发行\\n[医] 发射, 遗精"
+   ],
+   "en": [
+    "n. the act of emitting; causing to flow forth\\nn. the release of electrons from parent atoms\\nn. the occurrence of a flow of water (as from a pipe)"
+   ]
+  },
+  "conservation": {
+   "word": "conservation",
+   "phon": ".kɒnsә'veiʃәn",
+   "pos": "",
+   "cn": [
+    "n. 保护, 保存\\n[医] 保存"
+   ],
+   "en": [
+    "n. an occurrence of improvement by virtue of preventing loss or injury or other change\\nn. the preservation and careful management of the environment and of natural resources\\nn. (physics) the maintenance of a certain quantities unchanged during chemical reactions or physical transformations"
+   ]
+  },
+  "contaminate": {
+   "word": "contaminate",
+   "phon": "kәn'tæmineit",
+   "pos": "",
+   "cn": [
+    "vt. 弄污, 弄脏, 污染, 毒害\\n[化] 污染"
+   ],
+   "en": [
+    "v. make radioactive by adding radioactive material"
+   ]
+  },
+  "renewable": {
+   "word": "renewable",
+   "phon": "ri'nju(:)әbl",
+   "pos": "",
+   "cn": [
+    "a. 可更新的, 可恢复的, 可继续的, 可换新的, 可重复的, 可重说的\\n[计] 可更新, 可再生的"
+   ],
+   "en": [
+    "a. that can be renewed or extended\\ns. capable of being renewed; replaceable"
+   ]
+  },
+  "deforestation": {
+   "word": "deforestation",
+   "phon": "di:.fɒ:ri'steiʃәn",
+   "pos": "",
+   "cn": [
+    "n. 采伐森林, 森林开伐\\n[法] 砍伐森森"
+   ],
+   "en": [
+    "n. the state of being clear of trees\\nn. the removal of trees"
+   ]
+  },
+  "ecosystem": {
+   "word": "ecosystem",
+   "phon": "'i:kәu.sistәm",
+   "pos": "",
+   "cn": [
+    "n. 生态系统\\n[医] 生态系"
+   ],
+   "en": [
+    "n. a system formed by the interaction of a community of organisms with their physical environment"
+   ]
+  },
+  "toxic": {
+   "word": "toxic",
+   "phon": "'tɒksik",
+   "pos": "",
+   "cn": [
+    "a. 有毒的, 中毒的\\n[医] 中毒的, 毒物的"
+   ],
+   "en": [
+    "a. of or relating to or caused by a toxin or poison"
+   ]
+  },
+  "offset": {
+   "word": "offset",
+   "phon": "'ɒ:fset",
+   "pos": "",
+   "cn": [
+    "n. 抵消, 把...并列, 旁系, 支管, 用胶印法印\\nvt. 弥补, 抵消, 胶印\\nvi. 装支管\\nn. 偏移量\\n[计] 偏移量"
+   ],
+   "en": [
+    "n. a plate makes an inked impression on a rubber-blanketed cylinder, which in turn transfers it to the paper\\nv. compensate for or counterbalance\\nv. cause (printed matter) to transfer or smear onto another surface\\nv. create an offset in"
+   ]
+  },
+  "degrade": {
+   "word": "degrade",
+   "phon": "di'greid",
+   "pos": "",
+   "cn": [
+    "v. (使)降级, (使)退化"
+   ],
+   "en": [
+    "v. reduce the level of land, as by erosion\\nv. lower the grade of something; reduce its worth"
+   ]
+  },
+  "innovation": {
+   "word": "innovation",
+   "phon": ".inәu'veiʃәn",
+   "pos": "",
+   "cn": [
+    "n. 改革, 创新\\n[法] 创新, 改革, 刷新"
+   ],
+   "en": [
+    "n a creation (a new device or process) resulting from study and experimentation\\nn the creation of something in the mind\\nn the act of starting something for the first time; introducing something new"
+   ]
+  },
+  "automate": {
+   "word": "automate",
+   "phon": "'ɔ:tәmeit",
+   "pos": "",
+   "cn": [
+    "vt.vi. (使)自动化\\n[计] 自动化"
+   ],
+   "en": [
+    "v make automatic or control or operate automatically"
+   ]
+  },
+  "artificial": {
+   "word": "artificial",
+   "phon": ".ɑ:ti'fiʃәl",
+   "pos": "",
+   "cn": [
+    "a. 人造的, 假的, 非原地产的\\n[医] 人工的, 人造的, 伟牟"
+   ],
+   "en": [
+    "a. contrived by art rather than nature\\ns. artificially formal\\ns. not arising from natural growth or characterized by vital processes"
+   ]
+  },
+  "surveillance": {
+   "word": "surveillance",
+   "phon": "sә:'veilәns",
+   "pos": "",
+   "cn": [
+    "n. 监视, 监督\\n[电] 侦测"
+   ],
+   "en": [
+    "n. close observation of a person or group (usually by the police)"
+   ]
+  },
+  "accessibility": {
+   "word": "accessibility",
+   "phon": "әk.sesә'biliti",
+   "pos": "",
+   "cn": [
+    "n. 易接近, 可进入\\n[化] 可及性; 可达性; 可接近性; 吸湿性"
+   ],
+   "en": [
+    "n the quality of being at hand when needed\\nn the attribute of being easy to meet or deal with"
+   ]
+  },
+  "obsolete": {
+   "word": "obsolete",
+   "phon": "'ɒbsәli:t",
+   "pos": "",
+   "cn": [
+    "a. 荒废的, 成废物的, 陈旧的, 老式的\\nn. 废词, 废物"
+   ],
+   "en": [
+    "s no longer in use"
+   ]
+  },
+  "digital": {
+   "word": "digital",
+   "phon": "'didʒitәl",
+   "pos": "",
+   "cn": [
+    "a. 数字显示的, 数字的\\nn. 数字仪表, 数字式电子表(或时钟)\\n[计] 数字, 数字式"
+   ],
+   "en": [
+    "a. displaying numbers rather than scale positions\\na. relating to or performed with the fingers\\na. of a circuit or device that represents magnitudes in digits"
+   ]
+  },
+  "breakthrough": {
+   "word": "breakthrough",
+   "phon": "'breikθru:",
+   "pos": "",
+   "cn": [
+    "n. 突破\\n[经] 突破, 新发现, 新进展"
+   ],
+   "en": [
+    "n. making an important discovery\\nn. a penetration of a barrier such as an enemy's defense"
+   ]
+  },
+  "reliable": {
+   "word": "reliable",
+   "phon": "ri'laiәbl",
+   "pos": "",
+   "cn": [
+    "a. 可靠的, 可信赖的\\n[法] 可靠的, 可信赖的, 确实的"
+   ],
+   "en": [
+    "a. worthy of reliance or trust"
+   ]
+  },
+  "cybersecurity": null,
+  "obesity": {
+   "word": "obesity",
+   "phon": "әu'bi:siti",
+   "pos": "",
+   "cn": [
+    "n. 肥胖\\n[医] 肥胖, 多脂"
+   ],
+   "en": [
+    "n more than average fatness"
+   ]
+  },
+  "immune": {
+   "word": "immune",
+   "phon": "i'mju:n",
+   "pos": "",
+   "cn": [
+    "a. 免疫的, 免除的, 不受影响的\\nn. 免疫者"
+   ],
+   "en": [
+    "n. a person who is immune to a particular infection\\na. relating to the condition of immunity\\ns. secure against\\ns. relating to or conferring immunity (to disease or infection)"
+   ]
+  },
+  "epidemic": {
+   "word": "epidemic",
+   "phon": ".epi'demik",
+   "pos": "",
+   "cn": [
+    "n. 传染病, 流行病\\na. 流行的, 传染性的"
+   ],
+   "en": [
+    "n. a widespread outbreak of an infectious disease; many people are infected at the same time\\na. (especially of medicine) of disease or anything resembling a disease; attacking or affecting many individuals in a community or a population simultaneously"
+   ]
+  },
+  "therapy": {
+   "word": "therapy",
+   "phon": "'θerәpi",
+   "pos": "",
+   "cn": [
+    "n. 治疗\\n[医] 疗法, 治疗"
+   ],
+   "en": [
+    "n. (medicine) the act of caring for someone (as by medication or remedial training etc.)"
+   ]
+  },
+  "chronic": {
+   "word": "chronic",
+   "phon": "'krɒnik",
+   "pos": "",
+   "cn": [
+    "a. 慢性的, 习惯性的\\nn. 慢性病患者"
+   ],
+   "en": [
+    "a. being long-lasting and recurrent or characterized by long suffering\\ns. of long duration\\ns. habitual"
+   ]
+  },
+  "diagnose": {
+   "word": "diagnose",
+   "phon": "'daiәgnәuz",
+   "pos": "",
+   "cn": [
+    "v. 诊断"
+   ],
+   "en": [
+    "v. determine or distinguish the nature of a problem or an illness through a diagnostic analysis\\nv. subject to a medical analysis"
+   ]
+  },
+  "nutrition": {
+   "word": "nutrition",
+   "phon": "nju:'triʃәn",
+   "pos": "",
+   "cn": [
+    "n. 营养, 营养学\\n[医] 营养, 营养品"
+   ],
+   "en": [
+    "n. (physiology) the organic process of nourishing or being nourished; the processes by which an organism assimilates food and uses it for growth and maintenance\\nn. the scientific study of food and drink (especially in humans)"
+   ]
+  },
+  "sedentary": {
+   "word": "sedentary",
+   "phon": "'sedәntәri",
+   "pos": "",
+   "cn": [
+    "a. 久坐的, 坐惯的, 定栖的\\n[医] 静坐的; 坐式的"
+   ],
+   "en": [
+    "s. requiring sitting or little activity"
+   ]
+  },
+  "vaccine": {
+   "word": "vaccine",
+   "phon": "'væksi:n",
+   "pos": "",
+   "cn": [
+    "n. 牛痘苗, 疫苗\\na. 疫苗的, 牛痘的"
+   ],
+   "en": [
+    "n. immunogen consisting of a suspension of weakened or dead pathogenic cells injected in order to stimulate the production of antibodies"
+   ]
+  },
+  "well-being": {
+   "word": "well-being",
+   "phon": "'welbiiŋ",
+   "pos": "",
+   "cn": [
+    "a. 安宁的, 康乐的"
+   ],
+   "en": [
+    "n a contented state of being happy and healthy and prosperous"
+   ]
+  },
+  "urbanisation": {
+   "word": "urbanisation",
+   "phon": "ˌɜ:bənaɪ'zeɪʃən",
+   "pos": "",
+   "cn": [
+    "n. 城市化（等于urbanization）"
+   ],
+   "en": [
+    "n the condition of being urbanized\\nn the social process whereby cities grow and societies become more urban"
+   ]
+  },
+  "inequality": {
+   "word": "inequality",
+   "phon": ".ini'kwɒliti",
+   "pos": "",
+   "cn": [
+    "n. 不平等, 不同, 不平坦, 不平均\\nn. 不平等, 不等式\\n[计] 不等式"
+   ],
+   "en": [
+    "n. lack of equality"
+   ]
+  },
+  "welfare": {
+   "word": "welfare",
+   "phon": "'welfєә",
+   "pos": "",
+   "cn": [
+    "n. 福利, 安宁, 幸福, 福利事业\\na. 福利的"
+   ],
+   "en": [
+    "n governmental provision of economic assistance to persons in need\\nn something that aids or promotes well-being\\nn a contented state of being happy and healthy and prosperous"
+   ]
+  },
+  "community": {
+   "word": "community",
+   "phon": "kә'mju:niti",
+   "pos": "",
+   "cn": [
+    "n. 社区, 公众, 共有, 共同体\\n[经] 公众, 共有, 社会"
+   ],
+   "en": [
+    "n. a group of people living in a particular local area\\nn. common ownership\\nn. a group of nations having common interests\\nn. agreement as to goals"
+   ]
+  },
+  "demographic": {
+   "word": "demographic",
+   "phon": ".demә'græfik",
+   "pos": "",
+   "cn": [
+    "a. 人口统计的\\n[法] 人口统计的, 人口学的"
+   ],
+   "en": [
+    "n. a statistic characterizing human populations (or segments of human populations broken down by age or sex or income etc.)\\na. of or relating to demography"
+   ]
+  },
+  "poverty": {
+   "word": "poverty",
+   "phon": "'pɒvәti",
+   "pos": "",
+   "cn": [
+    "n. 贫穷, 贫困, 缺乏\\n[医] 贫乏, 缺乏"
+   ],
+   "en": [
+    "n. the state of having little or no money and few or no material possessions"
+   ]
+  },
+  "infrastructure": {
+   "word": "infrastructure",
+   "phon": "'infrәstrʌktʃә",
+   "pos": "",
+   "cn": [
+    "n. 基础结构, 基础设施\\n[经] 基础设施"
+   ],
+   "en": [
+    "n. the basic structure or features of a system or organization\\nn. the stock of basic facilities and capital equipment needed for the functioning of a country or area"
+   ]
+  },
+  "migrant": {
+   "word": "migrant",
+   "phon": "'maigrәnt",
+   "pos": "",
+   "cn": [
+    "n. 候鸟, 移居者\\n[法] 移居者"
+   ],
+   "en": [
+    "n. traveler who moves from one region or country to another\\ns. habitually moving from place to place especially in search of seasonal work"
+   ]
+  },
+  "legislate": {
+   "word": "legislate",
+   "phon": "'ledʒisleit",
+   "pos": "",
+   "cn": [
+    "vi. 制定法律\\nvt. 用立法规定"
+   ],
+   "en": [
+    "v. make laws, bills, etc. or bring into effect by legislation"
+   ]
+  },
+  "cohesion": {
+   "word": "cohesion",
+   "phon": "kәu'hi:ʒәn",
+   "pos": "",
+   "cn": [
+    "n. 结合, 黏聚, 内聚\\n[计] 内聚性"
+   ],
+   "en": [
+    "n. (botany) the process in some plants of parts growing together that are usually separate (such as petals)\\nn. (physics) the intermolecular force that holds together the molecules in a solid or liquid"
+   ]
+  },
+  "recruit": {
+   "word": "recruit",
+   "phon": "ri'kru:t",
+   "pos": "",
+   "cn": [
+    "n. 新兵, 新手, 新会员, 补给品\\nvt. 恢复, 补充, 充实, 征募\\nvi. 征募新兵, 复原, 得到补充"
+   ],
+   "en": [
+    "n. a recently enlisted soldier\\nn. any new member or supporter (as in the armed forces)\\nv. seek to employ\\nv. cause to assemble or enlist in the military"
+   ]
+  },
+  "qualification": {
+   "word": "qualification",
+   "phon": ".kwɒlifi'keiʃәn",
+   "pos": "",
+   "cn": [
+    "n. 资格, 条件, 限制\\n[计] 限定"
+   ],
+   "en": [
+    "n. an attribute that must be met or complied with and that fits a person for something\\nn. the act of modifying or changing the strength of some idea"
+   ]
+  },
+  "colleague": {
+   "word": "colleague",
+   "phon": "'kɒli:g",
+   "pos": "",
+   "cn": [
+    "n. 同事, 同僚"
+   ],
+   "en": [
+    "n. an associate that one works with\\nn. a person who is member of one's class or profession"
+   ]
+  },
+  "telecommute": {
+   "word": "telecommute",
+   "phon": ".telikә'mju:t",
+   "pos": "",
+   "cn": [
+    "vi. （利用电脑终端机）远距离工作"
+   ],
+   "en": []
+  },
+  "workload": {
+   "word": "workload",
+   "phon": "'wә:klәud",
+   "pos": "",
+   "cn": [
+    "n. 工作量\\n[化] 工作量"
+   ],
+   "en": [
+    "n. work that a person is expected to do in a specified time"
+   ]
+  },
+  "entrepreneur": {
+   "word": "entrepreneur",
+   "phon": ".ɒntrәprә'nә:",
+   "pos": "",
+   "cn": [
+    "n. 企业家, 主办人\\n[经] 承包商, 企业家"
+   ],
+   "en": [
+    "n. someone who organizes a business venture and assumes the risk for it"
+   ]
+  },
+  "redundant": {
+   "word": "redundant",
+   "phon": "ri'dʌndәnt",
+   "pos": "",
+   "cn": [
+    "a. 多余的, 过多的, 冗长的\\n[医] 过多的, 多余的"
+   ],
+   "en": [
+    "s more than is needed, desired, or required\\ns repetition of same sense in different words"
+   ]
+  },
+  "productivity": {
+   "word": "productivity",
+   "phon": ".prәudʌk'tiviti",
+   "pos": "",
+   "cn": [
+    "n. 生产力\\n[经] 生产率, 生产能力"
+   ],
+   "en": [
+    "n. (economics) the ratio of the quantity and quality of units produced to the labor per unit of time"
+   ]
+  },
+  "internship": {
+   "word": "internship",
+   "phon": "'intә:nʃip",
+   "pos": "",
+   "cn": [
+    "n. 实习医师的职务\\n[医] 实习医师职位, 实习医师期"
+   ],
+   "en": [
+    "n. the position of a medical intern"
+   ]
+  },
+  "censorship": {
+   "word": "censorship",
+   "phon": "'sensәʃip",
+   "pos": "",
+   "cn": [
+    "n. 检查制度\\n[医] 督察, 监察"
+   ],
+   "en": [
+    "n counterintelligence achieved by banning or deleting any information of value to the enemy\\nn deleting parts of publications or correspondence or theatrical performances"
+   ]
+  },
+  "influence": {
+   "word": "influence",
+   "phon": "'influәns",
+   "pos": "",
+   "cn": [
+    "n. 影响力, 权力, 势力\\nvt. 影响, 改变"
+   ],
+   "en": [
+    "n. a power to affect persons or events especially power based on prestige etc\\nn. causing something without any direct or apparent effort\\nn. a cognitive factor that tends to have an effect on what you do\\nn. the effect of one thing (or person) on another"
+   ]
+  },
+  "misleading": {
+   "word": "misleading",
+   "phon": "mis'li:diŋ",
+   "pos": "",
+   "cn": [
+    "a. 引入歧途的, 使人误解的, 骗人的\\n[法] 误写姓名的, 误称的, 令人误解的"
+   ],
+   "en": [
+    "v lead someone in the wrong direction or give someone wrong directions\\nv give false or misleading information to\\ns designed to deceive or mislead either deliberately or inadvertently"
+   ]
+  },
+  "coverage": {
+   "word": "coverage",
+   "phon": "'kʌvәridʒ",
+   "pos": "",
+   "cn": [
+    "n. 覆盖的范围, 保险总额, 新闻报导\\n[化] 可达范围; 覆盖度"
+   ],
+   "en": [
+    "n. the total amount and type of insurance carried\\nn. the extent to which something is covered\\nn. the news as presented by reporters for newspapers or radio or television"
+   ]
+  },
+  "publicity": {
+   "word": "publicity",
+   "phon": "pʌb'lisiti",
+   "pos": "",
+   "cn": [
+    "n. 名声, 宣传, 公开场合\\n[经] 宣传, 广告"
+   ],
+   "en": [
+    "n. the quality of being open to public view"
+   ]
+  },
+  "broadcast": {
+   "word": "broadcast",
+   "phon": "'brɒ:dkæst",
+   "pos": "",
+   "cn": [
+    "n. 广播, 传播\\na. 广播的\\nv. 广播\\nadv. 经广播, 四散地\\n[计] 广播命令, 广播"
+   ],
+   "en": [
+    "n. message that is transmitted by radio or television\\nn. a radio or television show\\nv. sow over a wide area, especially by hand"
+   ]
+  },
+  "tabloid": {
+   "word": "tabloid",
+   "phon": "'tæblɒid",
+   "pos": "",
+   "cn": [
+    "n. 小报, 小型画报, 药片, 文摘\\na. 轰动性的, 扼要的, 缩略的, 小报式的"
+   ],
+   "en": [
+    "n. newspaper with half-size pages"
+   ]
+  },
+  "disseminate": {
+   "word": "disseminate",
+   "phon": "di'semineit",
+   "pos": "",
+   "cn": [
+    "vt. 散播, 传播, 宣传\\nvi. 广为传播"
+   ],
+   "en": [
+    "v cause to become widely known"
+   ]
+  },
+  "exposure": {
+   "word": "exposure",
+   "phon": "ik'spәuʒә",
+   "pos": "",
+   "cn": [
+    "n. 暴露, 揭发, 揭露\\n[化] 曝光量; 照射; 照射量"
+   ],
+   "en": [
+    "n. vulnerability to the elements; to the action of heat or cold or wind or rain; \\nn. the act of subjecting someone to an influencing experience\\nn. the disclosure of something secret\\nn. aspect resulting from the direction a building or window faces"
+   ]
+  },
+  "verify": {
+   "word": "verify",
+   "phon": "'verifai",
+   "pos": "",
+   "cn": [
+    "vt. 证明, 查证, 证实, 检验, 校验\\n[计] 校验, 检验; DOS内部命令:设定写入磁盘时是否验证写入的正确性"
+   ],
+   "en": [
+    "v. confirm the truth of\\nv. attach or append a legal verification to (a pleading or petition)"
+   ]
+  },
+  "commute": {
+   "word": "commute",
+   "phon": "kә'mju:t",
+   "pos": "",
+   "cn": [
+    "vt. 交换, 折偿, 减轻\\nvi. 代偿, 经常乘车来往"
+   ],
+   "en": [
+    "n. a regular journey of some distance to and from your place of work\\nv. exchange positions without a change in value\\nv. travel back and forth regularly, as between one's place of work and home\\nv. exchange a penalty for a less severe one"
+   ]
+  },
+  "accommodation": {
+   "word": "accommodation",
+   "phon": "ә.kɒmә'deiʃәn",
+   "pos": "",
+   "cn": [
+    "n. 膳宿, 预订铺位, 适应性调节, 调和, 贷款\\n[医] 调节(眼); 适应"
+   ],
+   "en": [
+    "n. a settlement of differences\\nn. in the theories of Jean Piaget: the modification of internal representations in order to accommodate a changing knowledge of reality\\nn. living quarters provided for public convenience\\nn. the act of providing something (lodging or seat or food) to meet a need"
+   ]
+  },
+  "leisure": {
+   "word": "leisure",
+   "phon": "'li:ʒә",
+   "pos": "",
+   "cn": [
+    "n. 空闲, 闲暇, 悠闲\\na. 空闲的, 有闲的"
+   ],
+   "en": [
+    "n. time available for ease and relaxation\\nn. freedom to choose a pastime or enjoyable activity"
+   ]
+  },
+  "destination": {
+   "word": "destination",
+   "phon": ".desti'neiʃәn",
+   "pos": "",
+   "cn": [
+    "n. 目的地, 目标, 目的\\n[计] 目的文件, 目的单元"
+   ],
+   "en": [
+    "n. the ultimate goal for which something is done"
+   ]
+  },
+  "itinerary": {
+   "word": "itinerary",
+   "phon": "ai'tinәrәri",
+   "pos": "",
+   "cn": [
+    "n. 旅程, 旅行指南, 游记\\na. 巡回的, 旅程的"
+   ],
+   "en": [
+    "n an established line of travel or access\\nn a guidebook for travelers\\nn a proposed route of travel"
+   ]
+  },
+  "budget": {
+   "word": "budget",
+   "phon": "'bʌdʒit",
+   "pos": "",
+   "cn": [
+    "n. 预算\\nvi. 编预算\\nvt. 编入预算, 安排\\na. 廉价的"
+   ],
+   "en": [
+    "n. a sum of money allocated for a particular purpose\\nn. a summary of intended expenditures along with proposals for how to meet them\\nv. make a budget"
+   ]
+  },
+  "convenience": {
+   "word": "convenience",
+   "phon": "kә'vi:njәns",
+   "pos": "",
+   "cn": [
+    "n. 方便, 便利的事物, 方便的时候"
+   ],
+   "en": [
+    "n. the state of being suitable or opportune\\nn. the quality of being useful and convenient"
+   ]
+  },
+  "household": {
+   "word": "household",
+   "phon": "'haushәuld",
+   "pos": "",
+   "cn": [
+    "n. 一家人, 家庭, 家族, 王室\\na. 家庭的, 家常的, 王室的"
+   ],
+   "en": [
+    "n a social unit living together"
+   ]
+  },
+  "amenity": {
+   "word": "amenity",
+   "phon": "ә'mi:niti",
+   "pos": "",
+   "cn": [
+    "n. 便利设施, 适意, 礼仪\\n[法] 舒适, 方便, 优雅"
+   ],
+   "en": [
+    "n pleasantness resulting from agreeable conditions"
+   ]
+  },
+  "communal": {
+   "word": "communal",
+   "phon": "'kɒmjunәl",
+   "pos": "",
+   "cn": [
+    "a. 公有的, 公社的\\n[法] 公共的, 自治体的, 巴黎公社的"
+   ],
+   "en": [
+    "s. for or by a group rather than individuals\\na. relating to a small administrative district or community"
+   ]
   }
  }
 }
