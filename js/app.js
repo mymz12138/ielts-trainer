@@ -12,6 +12,8 @@ const I = {
   wrong: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>',
   vocab: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
   plan: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+  write: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
+  read: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
   pen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>',
   mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>',
   headphone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>',
@@ -35,7 +37,10 @@ const NAVS = [
   { id: "notes", name: "考点速记", icon: I.notes },
   { id: "wrong", name: "错题本",   icon: I.wrong },
   { id: "vocab", name: "单词打卡", icon: I.vocab },
-  { id: "plan",  name: "复习计划", icon: I.plan }
+  { id: "plan",  name: "复习计划", icon: I.plan },
+  { id: "writing", name: "写作范文", icon: I.write },
+  { id: "reading", name: "阅读题库", icon: I.read },
+  { id: "material", name: "词汇句型", icon: I.book }
 ];
 
 const PLAN_TASKS = [
@@ -148,8 +153,18 @@ function navigate(v) {
   document.querySelectorAll(".nav-item,.bnav-item").forEach(b => b.classList.toggle("active", b.dataset.view === v));
   const main = $("#main");
   main.scrollTop = 0; window.scrollTo(0, 0);
-  const R = { home: renderHome, train: renderTrain, notes: renderNotes, wrong: renderWrong, vocab: renderVocab, plan: renderPlan };
+  const R = { home: renderHome, train: renderTrain, notes: renderNotes, wrong: renderWrong, vocab: renderVocab, plan: renderPlan, writing: renderWriting, reading: renderReading, material: renderMaterial };
   (R[v] || renderHome)();
+}
+
+/* ---------- 按需加载数据脚本 ---------- */
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[src*="${src}"]`)) { resolve(); return; }
+    const s = document.createElement("script");
+    s.src = src; s.onload = resolve; s.onerror = reject;
+    document.head.appendChild(s);
+  });
 }
 function renderNav() {
   const wrongN = S.wrong.filter(w => !w.mastered).length;
@@ -1132,6 +1147,121 @@ function applyTheme() {
 function toggleTheme() {
   S.theme = S.theme === "dark" ? "light" : "dark";
   save(); applyTheme();
+}
+
+/* ===================== 写作范文 ===================== */
+let writingTab = "task2";
+async function renderWriting() {
+  $("#main").innerHTML = `<div class="view"><div class="card"><div class="card-title">写作范文库</div>
+    <div class="seg"><button class="seg-btn${writingTab==="task2"?" active":""}" data-wtab="task2">大作文 Task 2（${window.TASK2?TASK2.length:"…"}）</button>
+      <button class="seg-btn${writingTab==="task1"?" active":""}" data-wtab="task1">小作文 Task 1（${window.TASK1?TASK1.length:"…"}）</button></div>
+    <input class="search" id="wSearch" placeholder="搜索题目关键词…">
+    <div id="wList"><div class="dict-loading">加载中…</div></div>
+  </div></div>`;
+  try {
+    if (writingTab === "task2") await loadScript("js/data-task2.js?v=6");
+    else await loadScript("js/data-task1.js?v=6");
+  } catch (e) { $("#wList").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  const list = writingTab === "task2" ? TASK2 : TASK1;
+  const draw = (q) => {
+    const kw = (q || "").trim().toLowerCase();
+    const items = list.filter(e => !kw || e.q.toLowerCase().includes(kw) || e.essay.toLowerCase().includes(kw));
+    if (!items.length) { $("#wList").innerHTML = `<div class="empty-state">没有匹配的题目</div>`; return; }
+    $("#wList").innerHTML = items.map((e, i) => `
+      <details class="essay-item" data-i="${i}">
+        <summary><span class="essay-date">${esc(e.date)}</span><span class="essay-q">${esc(e.q.slice(0, 80))}${e.q.length > 80 ? "…" : ""}</span><span class="essay-wc">${e.words}词</span></summary>
+        <div class="essay-body">
+          <div class="essay-block"><div class="essay-label">题目</div><p>${esc(e.q)}</p></div>
+          <div class="essay-block"><div class="essay-label">参考范文</div>${e.essay.split("\n\n").map(p => `<p>${esc(p)}</p>`).join("")}</div>
+        </div>
+      </details>`).join("");
+  };
+  draw();
+  $("#wSearch").addEventListener("input", e => draw(e.target.value));
+  document.querySelectorAll("[data-wtab]").forEach(b => b.addEventListener("click", () => { writingTab = b.dataset.wtab; renderWriting(); }));
+}
+
+/* ===================== 阅读题库 ===================== */
+let readingOpen = -1;
+async function renderReading() {
+  $("#main").innerHTML = `<div class="view"><div class="card"><div class="card-title">阅读题库（${window.READING?READING.length:"…"} 篇）</div>
+    <input class="search" id="rSearch" placeholder="搜索文章标题…">
+    <div id="rList"><div class="dict-loading">加载中…</div></div>
+  </div></div>`;
+  try { await loadScript("js/data-reading.js?v=6"); await loadScript("js/data-reading-answers.js?v=6"); }
+  catch (e) { $("#rList").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  const draw = (q) => {
+    const kw = (q || "").trim().toLowerCase();
+    const items = READING.map((r, i) => ({ r, i })).filter(x => !kw || x.r.title.toLowerCase().includes(kw));
+    $("#rList").innerHTML = items.map(({ r, i }) => `
+      <div class="read-item" data-i="${i}">
+        <div class="read-title">${esc(r.title)}</div>
+        <div class="read-meta">${esc(r.dates.slice(0, 50))}${r.dates.length > 50 ? "…" : ""}</div>
+        <button class="btn sm" data-open="${i}">阅读全文</button>
+      </div>`).join("") || `<div class="empty-state">没有匹配的文章</div>`;
+    document.querySelectorAll("[data-open]").forEach(b => b.addEventListener("click", () => openReading(+b.dataset.open)));
+  };
+  draw();
+  $("#rSearch").addEventListener("input", e => draw(e.target.value));
+  if (readingOpen >= 0) openReading(readingOpen);
+}
+function openReading(i) {
+  readingOpen = i;
+  const r = READING[i];
+  const ans = (READING_ANSWERS || []).find(a => a.title.toLowerCase() === r.title.toLowerCase());
+  $("#main").innerHTML = `<div class="view">
+    <div class="card">
+      <div class="read-detail-head">
+        <button class="btn sm ghost" id="rBack">${I.back} 返回</button>
+        <h3>${esc(r.title)}</h3>
+        <div class="read-meta">${esc(r.dates)}</div>
+      </div>
+      <div class="read-text">${r.text.split("\n\n").map(p => `<p>${esc(p)}</p>`).join("")}</div>
+      ${r.questions ? `<div class="read-questions"><div class="essay-label">题目</div><pre>${esc(r.questions)}</pre></div>` : ""}
+      ${ans ? `<div class="read-answer"><details><summary>查看答案</summary><pre>${esc(ans.answers)}</pre></details></div>` : `<div class="read-meta">（暂无对应答案）</div>`}
+    </div></div>`;
+  $("#rBack").addEventListener("click", () => { readingOpen = -1; renderReading(); });
+}
+
+/* ===================== 词汇句型 ===================== */
+let materialTab = "sentences";
+async function renderMaterial() {
+  $("#main").innerHTML = `<div class="view"><div class="card"><div class="card-title">词汇与句型</div>
+    <div class="seg"><button class="seg-btn${materialTab==="sentences"?" active":""}" data-mtab="sentences">写作核心 100 句</button>
+      <button class="seg-btn${materialTab==="vocab"?" active":""}" data-mtab="vocab">高考频词汇（${window.VOCAB1200?VOCAB1200.length:"…"}）</button></div>
+    <div id="mBody"><div class="dict-loading">加载中…</div></div>
+  </div></div>`;
+  try {
+    if (materialTab === "sentences") await loadScript("js/data-sentences.js?v=6");
+    else await loadScript("js/data-vocab1200.js?v=6");
+  } catch (e) { $("#mBody").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  if (materialTab === "sentences") {
+    $("#mBody").innerHTML = SENTENCES.map((s, i) => `
+      <div class="sent-item">
+        <div class="sent-no">${i + 1}</div>
+        <div class="sent-body">
+          <p class="sent-en">${esc(s.en)} <button class="say-btn" data-say="${esc(s.en)}" title="朗读">${I.volume}</button></p>
+          <p class="sent-cn">${esc(s.cn)}</p>
+        </div>
+      </div>`).join("");
+    document.querySelectorAll("[data-say]").forEach(b => b.addEventListener("click", () => ttsSpeak(b.dataset.say)));
+  } else {
+    $("#mBody").innerHTML = `<input class="search" id="vSearch" placeholder="搜索单词或释义…">
+      <div id="vList">${VOCAB1200.map(v => `
+        <div class="vocab-item">
+          <span class="vocab-w">${esc(v.w)}</span>
+          <span class="vocab-pos">${esc(v.pos)}</span>
+          <span class="vocab-def">${esc(v.def)}</span>
+          <span class="vocab-freq">考频 ${v.freq}</span>
+        </div>`).join("")}</div>`;
+    $("#vSearch").addEventListener("input", e => {
+      const kw = e.target.value.trim().toLowerCase();
+      document.querySelectorAll(".vocab-item").forEach(el => {
+        el.style.display = (!kw || el.textContent.toLowerCase().includes(kw)) ? "" : "none";
+      });
+    });
+  }
+  document.querySelectorAll("[data-mtab]").forEach(b => b.addEventListener("click", () => { materialTab = b.dataset.mtab; renderMaterial(); }));
 }
 
 /* ===================== 启动 ===================== */

@@ -638,6 +638,70 @@ html[data-theme="dark"] .hero { background: var(--brand-soft); color: var(--ink)
 @keyframes toastIn { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
 
 .section-gap { height: 18px; }
+
+/* ===== 底部导航可横向滚动（9 个入口） ===== */
+.bnav-inner { overflow-x: auto; scrollbar-width: none; }
+.bnav-inner::-webkit-scrollbar { display: none; }
+.bnav-item { flex: 0 0 auto; min-width: 56px; }
+
+/* ===== 通用：分段切换 / 搜索框 ===== */
+.seg { display: flex; gap: 8px; margin: 8px 0 14px; }
+.seg-btn {
+  flex: 1; padding: 9px 10px; border: 1.5px solid var(--line-soft);
+  background: var(--bg-soft); color: var(--ink-2); border-radius: 10px;
+  font-size: 13.5px; cursor: pointer; font-weight: 600;
+}
+.seg-btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.search {
+  width: 100%; padding: 11px 14px; border: 1.5px solid var(--line-soft);
+  border-radius: 10px; background: var(--bg-soft); color: var(--ink);
+  font-size: 14px; margin-bottom: 14px; box-sizing: border-box;
+}
+.search:focus { outline: none; border-color: var(--brand-2); }
+
+/* ===== 写作范文 ===== */
+.essay-item { border: 1px solid var(--line-soft); border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+.essay-item summary {
+  display: flex; align-items: center; gap: 10px; padding: 13px 14px;
+  cursor: pointer; list-style: none; background: var(--bg-soft);
+}
+.essay-item summary::-webkit-details-marker { display: none; }
+.essay-date { font-size: 12px; color: var(--brand-2); font-weight: 700; white-space: nowrap; }
+.essay-q { flex: 1; font-size: 13.5px; color: var(--ink-2); }
+.essay-wc { font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+.essay-body { padding: 14px; }
+.essay-block { margin-bottom: 14px; }
+.essay-label { font-size: 12px; font-weight: 700; color: var(--brand-2); margin-bottom: 6px; }
+.essay-block p { font-size: 14px; line-height: 1.75; color: var(--ink-2); margin: 0 0 8px; }
+
+/* ===== 阅读题库 ===== */
+.read-item {
+  border: 1px solid var(--line-soft); border-radius: 12px; padding: 13px 14px;
+  margin-bottom: 10px; display: flex; flex-direction: column; gap: 6px;
+}
+.read-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+.read-meta { font-size: 11.5px; color: var(--ink-3); }
+.read-detail-head { margin-bottom: 16px; }
+.read-detail-head h3 { margin: 10px 0 4px; font-size: 19px; }
+.read-text p { font-size: 14.5px; line-height: 1.85; color: var(--ink-2); margin: 0 0 12px; }
+.read-questions { margin-top: 18px; padding: 14px; background: var(--bg-soft); border-radius: 10px; }
+.read-questions pre, .read-answer pre { white-space: pre-wrap; font-size: 13.5px; line-height: 1.8; color: var(--ink-2); margin: 6px 0 0; }
+.read-answer { margin-top: 14px; }
+.read-answer summary { cursor: pointer; font-weight: 600; color: var(--brand-2); padding: 8px 0; }
+
+/* ===== 词汇句型 ===== */
+.sent-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line-soft); }
+.sent-no { flex: 0 0 28px; height: 28px; border-radius: 50%; background: var(--brand-softer); color: var(--brand-2); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.sent-body { flex: 1; }
+.sent-en { font-size: 14.5px; line-height: 1.7; color: var(--ink); margin: 0; }
+.sent-cn { font-size: 13px; color: var(--ink-3); margin: 5px 0 0; }
+.say-btn { border: none; background: none; color: var(--brand-2); cursor: pointer; padding: 0 4px; vertical-align: middle; }
+.say-btn svg { width: 16px; height: 16px; }
+.vocab-item { display: flex; align-items: baseline; gap: 10px; padding: 11px 4px; border-bottom: 1px solid var(--line-soft); flex-wrap: wrap; }
+.vocab-w { font-size: 15px; font-weight: 700; color: var(--brand); min-width: 110px; }
+.vocab-pos { font-size: 12px; color: var(--ink-3); font-style: italic; min-width: 36px; }
+.vocab-def { flex: 1; font-size: 13.5px; color: var(--ink-2); }
+.vocab-freq { font-size: 11px; color: var(--ink-3); white-space: nowrap; }
 .muted { color: var(--ink-3); font-size: 12.5px; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
 
