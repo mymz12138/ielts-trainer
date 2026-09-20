@@ -97,8 +97,10 @@ async function main() {
     const bnc = parseInt(cols[8]) || 0;
     const frq = parseInt(cols[9]) || 0;
     const rec = { word, cols, collins, oxford, bnc, frq };
-    if (tag.includes("ielts")) ieltsPool.push(rec);
-    else if ((collins >= 3 || oxford >= 2) && (bnc === 0 || bnc > 1500)) freqPool.push(rec);
+    // 排除 BNC 前 1500 个太基础的词（the/on/say/as...），保留 bnc==0（未收录）的词
+    const notTooBasic = bnc === 0 || bnc > 1500;
+    if (tag.includes("ielts") && notTooBasic) ieltsPool.push(rec);
+    else if ((collins >= 3 || oxford >= 2) && notTooBasic) freqPool.push(rec);
   }
   console.log(`ielts-tagged candidates: ${ieltsPool.length}, freq candidates: ${freqPool.length}`);
 
