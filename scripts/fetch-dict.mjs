@@ -20,6 +20,43 @@ const CSV_URL = "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecd
 const FORCE = process.argv.includes("--force");
 const TARGET_TOTAL = 3000;
 
+// 基础停用词（雅思考生已掌握的常见词，不纳入打卡词库）
+const STOPWORDS = new Set((
+  "a about above after again against all am an and any are aren't as at be because been before being below between both but by " +
+  "can can't cannot could couldn't did didn't do does doesn't doing don't down during each few for from further had hadn't has hasn't " +
+  "have haven't having he he'd he'll he's her here here's hers herself him himself his how how's i i'd i'll i'm i've if in into is " +
+  "isn't it it's its itself let's me more most mustn't my myself no nor not of off on once only or other ought our ours ourselves " +
+  "out over own same shan't she she'd she'll she's should shouldn't so some such than that that's the their theirs them themselves " +
+  "then there there's these they they'd they'll they're they've this those through to too under until up very was wasn't we we'd we'll " +
+  "we're we've were weren't what what's when when's where where's which while who who's whom why why's with won't would wouldn't you " +
+  "you'd you'll you're you've your yours yourself yourselves " +
+  "good bad big small old new young long short high low great little own same different first last next another such many much more " +
+  "most few several various due per via upon till amongst despite unless provided since although though whether whereas while " +
+  "go come get make take give say see know think look want use find tell ask work seem feel become leave put mean keep let begin " +
+  "seem try ask need feel become leave call keep hold turn move live believe bring happen write provide sit stand lose pay meet " +
+  "include continue set learn change lead understand watch follow stop create speak read allow add spend grow open walk win offer " +
+  "remember love consider appear buy wait serve die send expect build stay fall cut reach kill remain suggest raise pass sell " +
+  "require report decide pull develop level rise draw cook drive manage face break teach force hit train save contain " +
+  "time day year people way man woman thing child world life hand part place case week company system program question work " +
+  "government number night point home water room mother area money story fact month lot right study book eye job word business " +
+  "issue side kind head house service friend father power hour game line end member law car city community name team minute idea " +
+  "body information back parent face others level office door health person art war history party result change morning reason " +
+  "research girl moment staff teacher education class population group problem action century evidence idea moment " +
+  "just also now very well back still even new already never really always sometimes often usually maybe perhaps quite rather " +
+  "almost enough then there here where when why how which who whom what whose this that these those " +
+  "yes no not no one nobody nothing none neither either each every all both few many much more most some any " +
+  "one two three four five six seven eight nine ten first second third " +
+  "able about across after against along among around before behind below beneath beside between beyond by during except for " +
+  "from inside into like near of off on onto out outside over past since through throughout till to toward towards under " +
+  "underneath unlike until up upon with within without " +
+  "the a an this that these those i me my we us our you your he him his she her it its they them their " +
+  "and or but so if then than when while although because as since unless until before after " +
+  "in on at by for with from to of up down out off over under into onto upon " +
+  "is are was were be been being have has had do does did will would shall should can could may might must " +
+  "am not no yes very too so quite rather almost enough just only even still also already " +
+  "here there where when why how which who whom what whose "
+).split(/\s+/).filter(Boolean));
+
 /* ---------- 读取原 data-vocab.js，保留带例句的 80 词 ---------- */
 function readOriginalVocab() {
   const src = readFileSync(VOCAB_OUT, "utf8");
@@ -87,7 +124,8 @@ async function main() {
   const freqPool = [];    // 高频通用词
   for (const cols of rows) {
     const word = (cols[0] || "").trim();
-    if (!word || origSet.has(word.toLowerCase())) continue;
+    const wl = word.toLowerCase();
+    if (!word || origSet.has(wl) || STOPWORDS.has(wl)) continue;
     // 跳过太长/太短/含特殊字符的词
     if (word.length < 2 || word.length > 20) continue;
     if (!/^[A-Za-z][A-Za-z'-]*$/.test(word)) continue;
