@@ -901,7 +901,8 @@ function renderVocab() {
       <div class="vocab-word">${esc(w.w)}</div>
       <div class="vocab-pos">${esc(w.p)} <button class="btn sm plain" id="sayWord" style="margin-left:8px">${I.volume} 发音</button></div>
       <div class="vocab-cn">${esc(w.cn)}</div>
-      <div class="vocab-sent"><b>${esc(w.s)}</b><br>${esc(w.sc)}</div>
+      ${w.s ? `<div class="vocab-sent"><b>${esc(w.s)}</b><br>${esc(w.sc)}</div>` :
+        (w.en && w.en.length ? `<div class="vocab-sent"><b>释义</b><br>${w.en.map(e => esc(e)).join("<br>")}</div>` : "")}
       <button class="btn sm plain dict-btn" id="dictBtn">${I.book} 联网查词</button>
       ${dictPanelHTML("dictPanel")}
       <div class="vocab-actions">
@@ -946,7 +947,7 @@ function renderVocab() {
       <div class="card-title">生词本（${S.wordbook.length}）</div>
       ${wb.length ? `<div class="wordbook-list">${wb.map(w => {
         const full = ALL_WORDS.find(x => x.w === w);
-        return full ? `<div class="wordbook-row"><span class="w">${esc(full.w)}</span><span class="p">${esc(full.p)}</span><span class="m">${esc(full.cn)} — ${esc(full.s)}</span>
+        return full ? `<div class="wordbook-row"><span class="w">${esc(full.w)}</span><span class="p">${esc(full.p)}</span><span class="m">${esc(full.cn)}${full.s ? " — " + esc(full.s) : ""}</span>
           <button class="btn sm plain" data-known="${esc(full.w)}">已掌握</button></div>` : "";
       }).join("")}</div>` : `<p class="muted">打卡中选择「不认识」的词会出现在这里，方便集中复盘。</p>`}
     </div>
@@ -992,7 +993,9 @@ function renderVocab() {
       $("#exWord").textContent = w.w;
       $("#exPos").textContent = w.p;
       $("#exCn").textContent = w.cn;
-      $("#exSent").innerHTML = "<b>" + esc(w.s) + "</b><br>" + esc(w.sc);
+      $("#exSent").innerHTML = w.s
+        ? "<b>" + esc(w.s) + "</b><br>" + esc(w.sc)
+        : (w.en && w.en.length ? "<b>释义</b><br>" + w.en.map(e => esc(e)).join("<br>") : "");
     }
     $("#extraRound").addEventListener("click", () => { eb.style.display = "block"; exI = -1; nextEx(); eb.scrollIntoView({ behavior: "smooth" }); });
     attachDict("#exDictBtn", "#exDictPanel", () => exCur && exCur.w);
