@@ -1152,6 +1152,7 @@ function toggleTheme() {
 /* ===================== 写作范文 ===================== */
 let writingTab = "task2";
 async function renderWriting() {
+  const v = view;
   $("#main").innerHTML = `<div class="view"><div class="card"><div class="card-title">写作范文库</div>
     <div class="seg"><button class="seg-btn${writingTab==="task2"?" active":""}" data-wtab="task2">大作文 Task 2（${window.TASK2?TASK2.length:"…"}）</button>
       <button class="seg-btn${writingTab==="task1"?" active":""}" data-wtab="task1">小作文 Task 1（${window.TASK1?TASK1.length:"…"}）</button></div>
@@ -1161,7 +1162,8 @@ async function renderWriting() {
   try {
     if (writingTab === "task2") await loadScript("js/data-task2.js?v=6");
     else await loadScript("js/data-task1.js?v=6");
-  } catch (e) { $("#wList").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  } catch (e) { if (view !== v) return; $("#wList").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  if (view !== v) return;
   const list = writingTab === "task2" ? TASK2 : TASK1;
   const draw = (q) => {
     const kw = (q || "").trim().toLowerCase();
@@ -1184,12 +1186,14 @@ async function renderWriting() {
 /* ===================== 阅读题库 ===================== */
 let readingOpen = -1;
 async function renderReading() {
+  const v = view;
   $("#main").innerHTML = `<div class="view"><div class="card"><div class="card-title">阅读题库（${window.READING?READING.length:"…"} 篇）</div>
     <input class="search" id="rSearch" placeholder="搜索文章标题…">
     <div id="rList"><div class="dict-loading">加载中…</div></div>
   </div></div>`;
   try { await loadScript("js/data-reading.js?v=6"); await loadScript("js/data-reading-answers.js?v=6"); }
-  catch (e) { $("#rList").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  catch (e) { if (view !== v) return; $("#rList").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  if (view !== v) return;
   const draw = (q) => {
     const kw = (q || "").trim().toLowerCase();
     const items = READING.map((r, i) => ({ r, i })).filter(x => !kw || x.r.title.toLowerCase().includes(kw));
@@ -1226,6 +1230,7 @@ function openReading(i) {
 /* ===================== 词汇句型 ===================== */
 let materialTab = "sentences";
 async function renderMaterial() {
+  const v = view;
   $("#main").innerHTML = `<div class="view"><div class="card"><div class="card-title">词汇与句型</div>
     <div class="seg"><button class="seg-btn${materialTab==="sentences"?" active":""}" data-mtab="sentences">写作核心 100 句</button>
       <button class="seg-btn${materialTab==="vocab"?" active":""}" data-mtab="vocab">高考频词汇（${window.VOCAB1200?VOCAB1200.length:"…"}）</button></div>
@@ -1234,7 +1239,8 @@ async function renderMaterial() {
   try {
     if (materialTab === "sentences") await loadScript("js/data-sentences.js?v=6");
     else await loadScript("js/data-vocab1200.js?v=6");
-  } catch (e) { $("#mBody").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  } catch (e) { if (view !== v) return; $("#mBody").innerHTML = `<div class="empty-state">数据加载失败</div>`; return; }
+  if (view !== v) return;
   if (materialTab === "sentences") {
     $("#mBody").innerHTML = SENTENCES.map((s, i) => `
       <div class="sent-item">
