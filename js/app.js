@@ -236,7 +236,7 @@ function renderHome() {
         <div class="quick-entry">
           <button class="qe-btn" data-go="train"><span class="qe-ico" style="background:#4a6f8a">${I.headphone}</span><strong>真题训练</strong><span>听 / 读 / 写 / 口 分级刷</span></button>
           <button class="qe-btn" data-go="notes"><span class="qe-ico" style="background:#b07f22">${I.notes}</span><strong>考点速记</strong><span>高频考点翻卡记忆</span></button>
-          <button class="qe-btn" data-go="vocab"><span class="qe-ico" style="background:#4a8a5f">${I.vocab}</span><strong>单词打卡</strong><span>每日 10 词坚持签到</span></button>
+          <button class="qe-btn" data-go="vocab"><span class="qe-ico" style="background:#4a8a5f">${I.vocab}</span><strong>单词打卡</strong><span>每日 ${DAILY_WORDS} 词坚持签到</span></button>
           <button class="qe-btn" data-go="wrong"><span class="qe-ico" style="background:#b85c4b">${I.wrong}</span><strong>错题本</strong><span>自动收录 · 回看重做</span></button>
         </div>
       </div>
@@ -782,6 +782,7 @@ function renderWrong() {
 }
 
 /* ===================== 单词打卡 ===================== */
+const DAILY_WORDS = 30;   // 每日打卡单词数
 const ALL_WORDS = [];
 VOCAB_TOPICS.forEach(t => t.words.forEach(w => ALL_WORDS.push(Object.assign({ topic: t.name }, w))));
 
@@ -792,11 +793,11 @@ function dailyPicks(dateStr) {
     const j = Math.floor(rng() * (i + 1));
     [idx[i], idx[j]] = [idx[j], idx[i]];
   }
-  return idx.slice(0, 10);
+  return idx.slice(0, DAILY_WORDS);
 }
 function ensureVocabToday() {
   const d = todayStr();
-  if (!S.vocabToday || S.vocabToday.date !== d) {
+  if (!S.vocabToday || S.vocabToday.date !== d || (S.vocabToday.picks || []).length !== DAILY_WORDS) {
     S.vocabToday = { date: d, picks: dailyPicks(d), idx: 0, known: [], unknown: [], done: false };
     save();
   }
@@ -858,7 +859,7 @@ function renderVocab() {
 
   // 顶部：进度 + 日历
   const R = 40, C = 2 * Math.PI * R;
-  const pct = ck ? 100 : Math.round(doneN / 10 * 100);
+  const pct = ck ? 100 : Math.round(doneN / DAILY_WORDS * 100);
   const calCells = Array.from({ length: 30 }, (_, i) => {
     const d = new Date(); d.setDate(d.getDate() - (29 - i));
     const ds = todayStr(d);
@@ -884,20 +885,20 @@ function renderVocab() {
         <circle cx="48" cy="48" r="${R}" fill="none" stroke="var(--line-soft)" stroke-width="8"/>
         <circle cx="48" cy="48" r="${R}" fill="none" stroke="var(--brand-2)" stroke-width="8" stroke-linecap="round"
           stroke-dasharray="${C * pct / 100} ${C}"/>
-      </svg><div class="val">${doneN}/10</div></div>
+      </svg><div class="val">${doneN}/${DAILY_WORDS}</div></div>
       <div class="vp-info">
         <h3>今日单词打卡</h3>
-        <p>完成 10 个高频词即可打卡 · 覆盖 8 大主题词库</p>
+        <p>完成 ${DAILY_WORDS} 个高频词即可打卡 · 覆盖 8 大主题词库</p>
         <div class="streak-strip">${I.flame} 已连续打卡 ${st} 天</div>
       </div>
     </div>`;
   }
 
   let main = "";
-  if (!ck && doneN < 10) {
+  if (!ck && doneN < DAILY_WORDS) {
     const w = ALL_WORDS[vt.picks[doneN]];
     main = `<div class="card vocab-stage">
-      <div class="vocab-count">第 ${doneN + 1} / 10 词</div>
+      <div class="vocab-count">第 ${doneN + 1} / ${DAILY_WORDS} 词</div>
       <div class="vocab-word">${esc(w.w)}</div>
       <div class="vocab-pos">${esc(w.p)} <button class="btn sm plain" id="sayWord" style="margin-left:8px">${I.volume} 发音</button></div>
       <div class="vocab-cn">${esc(w.cn)}</div>
@@ -910,7 +911,7 @@ function renderVocab() {
         <button class="vbtn yes" id="vYes">认识 ✓</button>
       </div>
     </div>`;
-  } else if (!ck && doneN >= 10) {
+  } else if (!ck && doneN >= DAILY_WORDS) {
     main = `<div class="card vocab-stage">
       <div class="empty-state" style="padding:30px">
         <p>本组已完成，点击完成打卡</p>
@@ -936,7 +937,7 @@ function renderVocab() {
   const wb = S.wordbook.slice().reverse();
   $("#main").innerHTML = `<div class="view">
     <div class="view-head"><div class="view-title">每日单词打卡</div>
-    <div class="view-sub">每天 10 个雅思高频词 · 不认识的自动进入生词本</div></div>
+    <div class="view-sub">每天 ${DAILY_WORDS} 个雅思高频词 · 不认识的自动进入生词本</div></div>
     ${stage}
     ${main}
     <div class="card" style="margin-top:16px">
@@ -962,7 +963,7 @@ function renderVocab() {
     S.stats.wordsMet++;
     if (known) { vt.known.push(w.w); S.stats.wordsKnown++; }
     else if (!S.wordbook.includes(w.w)) { S.wordbook.push(w.w); }
-    if (vt.known.length + vt.unknown.length >= 10) { /* wait for check-in */ }
+    if (vt.known.length + vt.unknown.length >= DAILY_WORDS) { /* wait for check-in */ }
     vt.idx++;
     save(); renderVocab();
   }
@@ -971,7 +972,7 @@ function renderVocab() {
   if (yy) yy.addEventListener("click", () => advance(true));
   const dc = $("#doCheckin");
   if (dc) dc.addEventListener("click", () => {
-    S.checkins[vt.date] = { right: vt.known.length, total: 10 };
+    S.checkins[vt.date] = { right: vt.known.length, total: DAILY_WORDS };
     const log = S.planLog[vt.date] = S.planLog[vt.date] || {};
     if (S.plan && S.plan.tasks.includes("vocab")) log.vocab = true;
     save(); renderNav(); renderVocab();
