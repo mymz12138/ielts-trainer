@@ -25,8 +25,8 @@ function readOriginalVocab() {
   const src = readFileSync(VOCAB_OUT, "utf8");
   const ctx = {};
   vm.createContext(ctx);
-  vm.runInContext(src, ctx);
-  const topics = ctx.VOCAB_TOPICS || [];
+  // 注意：const/let 不会挂到 context 对象上，需用返回值读取
+  const topics = vm.runInContext(src + "\nVOCAB_TOPICS;", ctx) || [];
   const words = [];
   for (const t of topics) for (const w of t.words) words.push(Object.assign({ topic: t.name }, w));
   return { topics, words };
