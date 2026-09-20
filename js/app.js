@@ -808,14 +808,13 @@ function attachDict(btnSel, panelSel, getWord) {
           <div class="dict-head">
             <span class="dict-word">${esc(d.word)}</span>
             ${d.phon ? `<span class="dict-phon">${esc(d.phon)}</span>` : ""}
-            ${d.audio ? `<button class="dict-say" data-audio="${esc(d.audio)}" title="播放真人发音">${I.volume}</button>` : ""}
-            <span class="dict-src">dictionaryapi.dev</span>
+            ${d.pos ? `<span class="dict-pos-tag">${esc(d.pos)}</span>` : ""}
+            <span class="dict-src">ECDICT 开源词典</span>
           </div>
-          ${d.meanings.map(m => `
-            <div class="dict-meaning">
-              <div class="dict-pos">${esc(m.pos)}</div>
-              ${m.defs.map(df => `<div class="dict-def"><p>${esc(df.en)}</p>${df.ex ? `<p class="dict-ex">${esc(df.ex)}</p>` : ""}</div>`).join("")}
-            </div>`).join("")}
+          <div class="dict-meaning">
+            ${d.cn.length ? `<div class="dict-pos">中文释义</div>${d.cn.map(c => `<div class="dict-def"><p>${esc(c)}</p></div>`).join("")}` : ""}
+            ${d.en.length ? `<div class="dict-pos">English</div>${d.en.map(e => `<div class="dict-def"><p>${esc(e)}</p></div>`).join("")}` : ""}
+          </div>
           ${r.syns && r.syns.length ? `
             <div class="dict-meaning">
               <div class="dict-pos">近义词 · via Datamuse</div>

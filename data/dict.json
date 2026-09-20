@@ -4,41 +4,14 @@
   "promotion": {
    "word": "promotion",
    "phon": "/prəˈməʊʃn/",
-   "audio": "",
-   "meanings": [
-    {
-     "pos": "noun",
-     "defs": [
-      {
-       "en": "an advancement in rank or position in a job or organization.",
-       "ex": "She was given a promotion after only two years at the company."
-      },
-      {
-       "en": "activity that advertises a product, event or service in order to increase sales.",
-       "ex": "The company launched a nationwide sales promotion."
-      }
-     ]
-    }
-   ]
-  },
-  "obsolete": {
-   "word": "obsolete",
-   "phon": "/ˈɒbsəliːt/",
-   "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/obsolete-us.mp3",
-   "meanings": [
-    {
-     "pos": "adjective",
-     "defs": [
-      {
-       "en": "(of words, equipment, etc.) No longer in use; gone into disuse; disused or neglected (often by preference for something newer, which replaces the subject).",
-       "ex": "It is speculated that, within a few years, the Internet's speedy delivery of news worldwide will make newspapers obsolete."
-      },
-      {
-       "en": "Imperfectly developed; not very distinct.",
-       "ex": ""
-      }
-     ]
-    }
+   "pos": "n",
+   "cn": [
+    "晋升；晋级",
+    "促销；推销活动"
+   ],
+   "en": [
+    "a move to a higher position or rank in a job",
+    "activities intended to increase the sales of a product"
    ]
   }
  }
